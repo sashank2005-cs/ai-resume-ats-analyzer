@@ -54,7 +54,7 @@ function UploadBox({ setAnalysis }) {
       formData.append("resume", selectedFile);
 
       const response = await axios.post(
-        "http://localhost:5000/api/resume/upload",
+    "https://ai-resume-ats-analyzer-7p3g.onrender.com/api/resume/upload",
         formData,
         {
           headers: {
