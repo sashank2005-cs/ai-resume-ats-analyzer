@@ -1,0 +1,534 @@
+@import "tailwindcss";
+
+/* =========================================================
+   ATS ANALYZER — GLOBAL DESIGN SYSTEM
+========================================================= */
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --radius-small: 12px;
+  --radius-medium: 18px;
+  --radius-large: 28px;
+
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --violet: #8b5cf6;
+  --cyan: #22d3ee;
+  --emerald: #34d399;
+}
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f8faff;
+
+  --bg-secondary: #f1f5ff;
+
+  --surface: rgba(255, 255, 255, 0.82);
+
+  --surface-strong: rgba(255, 255, 255, 0.96);
+
+  --surface-soft: rgba(248, 250, 252, 0.72);
+
+  --text: #0f172a;
+
+  --secondary: #64748b;
+
+  --muted: #94a3b8;
+
+  --border: rgba(100, 116, 139, 0.16);
+
+  --border-strong: rgba(99, 102, 241, 0.22);
+
+  --nav-bg: rgba(255, 255, 255, 0.68);
+
+  --nav-bg-strong: rgba(255, 255, 255, 0.88);
+
+  --card-bg: rgba(255, 255, 255, 0.72);
+
+  --card-hover: rgba(255, 255, 255, 0.94);
+
+  --shadow:
+    0 20px 60px rgba(15, 23, 42, 0.08);
+
+  --shadow-strong:
+    0 25px 80px rgba(79, 70, 229, 0.14);
+
+  --grid-color:
+    rgba(99, 102, 241, 0.08);
+
+  --selection-bg:
+    rgba(99, 102, 241, 0.18);
+}
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0b1120;
+
+  --bg-secondary: #111827;
+
+  --surface: rgba(15, 23, 42, 0.76);
+
+  --surface-strong: rgba(15, 23, 42, 0.94);
+
+  --surface-soft: rgba(30, 41, 59, 0.62);
+
+  --text: #f8fafc;
+
+  --secondary: #a8b4c7;
+
+  --muted: #64748b;
+
+  --border: rgba(148, 163, 184, 0.12);
+
+  --border-strong: rgba(129, 140, 248, 0.22);
+
+  --nav-bg: rgba(11, 17, 32, 0.68);
+
+  --nav-bg-strong: rgba(11, 17, 32, 0.9);
+
+  --card-bg: rgba(15, 23, 42, 0.68);
+
+  --card-hover: rgba(30, 41, 59, 0.82);
+
+  --shadow:
+    0 22px 70px rgba(0, 0, 0, 0.24);
+
+  --shadow-strong:
+    0 28px 90px rgba(79, 70, 229, 0.18);
+
+  --grid-color:
+    rgba(129, 140, 248, 0.07);
+
+  --selection-bg:
+    rgba(129, 140, 248, 0.25);
+}
+
+/* =========================================================
+   MIDNIGHT AI THEME
+========================================================= */
+
+[data-theme="midnight"] {
+  color-scheme: dark;
+
+  --bg: #030712;
+
+  --bg-secondary: #07101f;
+
+  --surface: rgba(8, 15, 31, 0.72);
+
+  --surface-strong: rgba(5, 12, 26, 0.94);
+
+  --surface-soft: rgba(15, 23, 42, 0.58);
+
+  --text: #f8fbff;
+
+  --secondary: #a9b9d2;
+
+  --muted: #65748b;
+
+  --border: rgba(125, 147, 180, 0.12);
+
+  --border-strong: rgba(99, 102, 241, 0.28);
+
+  --nav-bg: rgba(3, 7, 18, 0.62);
+
+  --nav-bg-strong: rgba(3, 7, 18, 0.88);
+
+  --card-bg: rgba(8, 15, 31, 0.62);
+
+  --card-hover: rgba(15, 23, 42, 0.82);
+
+  --shadow:
+    0 24px 80px rgba(0, 0, 0, 0.3);
+
+  --shadow-strong:
+    0 30px 100px rgba(79, 70, 229, 0.22);
+
+  --grid-color:
+    rgba(56, 189, 248, 0.07);
+
+  --selection-bg:
+    rgba(139, 92, 246, 0.28);
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+
+  min-width: 320px;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--text);
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--bg);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #6366f1,
+      #8b5cf6
+    );
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #818cf8,
+      #a78bfa
+    );
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 var(--bg);
+}
+
+/* =========================================================
+   THEME TRANSITIONS
+========================================================= */
+
+body,
+nav,
+header,
+main,
+section,
+footer {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease;
+}
+
+/* =========================================================
+   REUSABLE GLASS SYSTEM
+========================================================= */
+
+.glass {
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-strong {
+  border: 1px solid var(--border-strong);
+
+  background: var(--surface-strong);
+
+  box-shadow: var(--shadow-strong);
+
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+}
+
+.glass-soft {
+  border: 1px solid var(--border);
+
+  background: var(--surface-soft);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* =========================================================
+   PREMIUM GRADIENT TEXT
+========================================================= */
+
+.ai-gradient-text {
+  background:
+    linear-gradient(
+      90deg,
+      #6366f1 0%,
+      #8b5cf6 40%,
+      #22d3ee 100%
+    );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================================
+   AI BORDER
+========================================================= */
+
+.ai-border {
+  position: relative;
+
+  border: 1px solid transparent;
+
+  background:
+    linear-gradient(
+        var(--surface-strong),
+        var(--surface-strong)
+      )
+      padding-box,
+    linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.5),
+        rgba(139, 92, 246, 0.18),
+        rgba(34, 211, 238, 0.42)
+      )
+      border-box;
+}
+
+/* =========================================================
+   GLOW UTILITIES
+========================================================= */
+
+.indigo-glow {
+  box-shadow:
+    0 0 25px rgba(99, 102, 241, 0.18),
+    0 15px 50px rgba(79, 70, 229, 0.12);
+}
+
+.cyan-glow {
+  box-shadow:
+    0 0 28px rgba(34, 211, 238, 0.15),
+    0 15px 55px rgba(14, 165, 233, 0.1);
+}
+
+.violet-glow {
+  box-shadow:
+    0 0 28px rgba(139, 92, 246, 0.18),
+    0 15px 55px rgba(124, 58, 237, 0.1);
+}
+
+/* =========================================================
+   PREMIUM CARD
+========================================================= */
+
+.premium-card {
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-large);
+
+  background: var(--card-bg);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--border-strong);
+
+  background: var(--card-hover);
+
+  box-shadow: var(--shadow-strong);
+}
+
+/* =========================================================
+   BUTTON FOCUS / ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   SECTION SCROLL OFFSET
+========================================================= */
+
+section[id],
+div[id] {
+  scroll-margin-top: 110px;
+}
+
+/* =========================================================
+   LIGHT THEME SPECIAL TUNING
+========================================================= */
+
+[data-theme="light"] .text-white {
+  /*
+    Do NOT globally convert Tailwind's text-white.
+    Buttons and gradient elements genuinely require white.
+  */
+}
+
+[data-theme="light"] .bg-slate-950\/45 {
+  background-color: rgba(255, 255, 255, 0.72);
+}
+
+/*
+  Floating AI cards in Hero contain explicit white text.
+  We selectively correct those cards in light mode.
+*/
+
+[data-theme="light"] .bg-slate-950\/45 .text-white {
+  color: #0f172a;
+}
+
+[data-theme="light"] .bg-slate-950\/45 .text-slate-300 {
+  color: #475569;
+}
+
+[data-theme="light"] .bg-slate-950\/45 .text-slate-400 {
+  color: #64748b;
+}
+
+/* =========================================================
+   DARK / MIDNIGHT GLOW ENHANCEMENT
+========================================================= */
+
+[data-theme="dark"] .premium-card,
+[data-theme="midnight"] .premium-card {
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+[data-theme="midnight"] .glass {
+  box-shadow:
+    0 22px 80px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   MOBILE OPTIMIZATION
+========================================================= */
+
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .premium-card:hover {
+    transform: none;
+  }
+}
